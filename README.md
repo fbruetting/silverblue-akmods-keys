@@ -57,7 +57,7 @@ OSTrees are located in `/sysroot/ostree/deploy/fedora/deploy/`.
 This command was handy for me to find out whether `akmods` signed a module after an `rpm-ostree` operation without rebooting the system.
 
 ```sh
-modinfo -F signature /sysroot/ostree/deploy/fedora/deploy/(rpm-ostree status --json | jq -r ".deployments[0].checksum").0/usr/lib/modules/*/extra/nvidia*/nvidia.ko.xz
+modinfo -F signature /sysroot/ostree/deploy/fedora/deploy/`rpm-ostree status --json | jq -r ".deployments[0].checksum"`.0/usr/lib/modules/*/extra/nvidia*/nvidia.ko.xz
 ```
 
 # FAQ
